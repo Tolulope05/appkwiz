@@ -9,6 +9,13 @@ class Answers {
   Answers.fromJson(Map<String, dynamic> json)
       : identifier = json['identifier'],
         answer = json['Answer'];
+
+  Map<String, dynamic> toJson() {
+    Map<String, dynamic> data = <String, dynamic>{};
+    data['identifier'] = this.identifier;
+    data['Answer'] = this.answer;
+    return data;
+  }
 }
 
 class Questions {
@@ -17,45 +24,72 @@ class Questions {
   List<Answers> answers;
   String correctAnswer;
 
-  Questions(
-    this.id,
-    this.question,
-    this.answers,
-    this.correctAnswer,
-  );
+  Questions({
+    required this.id,
+    required this.question,
+    required this.answers,
+    required this.correctAnswer,
+  });
 
   Questions.fromJson(Map<String, dynamic> json)
       : id = json['id'],
         question = json['question'],
-        // if (json['answers'] != null) {
-        //   answers = <Answers>[];
-        //   json['answers'].forEach(
-        //     (answer) => answers.add(
-        //       Answers.fromJson(answer),
-        //     ),
-        //   );
-        // }
         answers = (json['answers'] as List)
             .map(
               (e) => Answers.fromJson(e),
             )
             .toList(),
         correctAnswer = json['correct_answer'];
+
+  Map<String, dynamic> toJson() {
+    Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = this.id;
+    data['question'] = this.question;
+    if (this.answers != null) {
+      data['answers'] = this.answers.map((e) => e.toJson()).toList();
+    }
+    data['correct_answer'] = this.correctAnswer;
+    return data;
+  }
 }
 
 class QuestionPaperModel {
   String id;
   String title;
-  String imageUrl;
+  String? imageUrl;
   String description;
   int timeSeconds;
-  List<Questions> questions;
-  QuestionPaperModel(
-    this.id,
-    this.title,
+  List<Questions>? questions;
+
+  QuestionPaperModel({
+    required this.id,
+    required this.title,
     this.imageUrl,
-    this.description,
-    this.timeSeconds,
+    required this.description,
+    required this.timeSeconds,
     this.questions,
-  );
+  });
+
+  QuestionPaperModel.fromJson(Map<String, dynamic> json)
+      : id = json['id'],
+        title = json['title'],
+        imageUrl = json['image_url'],
+        description = json['Description'],
+        timeSeconds = json['time_seconds'],
+        questions = (json['questions'] as List)
+            .map((ques) => Questions.fromJson(ques))
+            .toList();
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = this.id;
+    data['title'] = this.title;
+    data['image_url'] = this.imageUrl;
+    data['Description'] = this.description;
+    data['time_seconds'] = this.timeSeconds;
+    // if (this.questions != null) {
+    //   data['questions'] = this.questions!.map((e) => e.toJson()).toList();
+    // }
+    return data;
+  }
 }
