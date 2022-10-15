@@ -45,6 +45,20 @@ class DataUploader extends GetxController {
         "time_seconds": paper.timeSeconds,
         "question_count": paper.questions == null ? 0 : paper.questions!.length,
       });
+      for (var questions in paper.questions!) {
+        final questionPath = questionRF(
+          paperID: paper.id,
+          questionID: questions.id,
+        );
+        batch.set(questionPath, {
+          "question": questions.question,
+          "correct_answer": questions.correctAnswer,
+        });
+        for (var answers in questions.answers) {
+          batch.set(questionPath.collection("answers").doc(answers.identifier),
+              {"identifier": answers.identifier, "answer": answers.answer});
+        }
+      }
     }
     await batch.commit(); // To submit everything in our firebase database
   }
