@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:appkwiz/controllers/firebase_ref/loading_status.dart';
 import 'package:appkwiz/models/question_paper_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,9 @@ class DataUploader extends GetxController {
     super.onReady();
   }
 
-  void uploadData() async {
+  final loadingStatus = LoadingStatus.loading.obs; // loading status observable
+  Future<void> uploadData() async {
+    loadingStatus.value = LoadingStatus.loading; // 0
     final FirebaseFirestore firestore = FirebaseFirestore.instance;
 
     final manifestContent = await DefaultAssetBundle.of(Get.context!)
@@ -61,5 +64,6 @@ class DataUploader extends GetxController {
       }
     }
     await batch.commit(); // To submit everything in our firebase database
+    loadingStatus.value = LoadingStatus.completed; // 1
   }
 }
