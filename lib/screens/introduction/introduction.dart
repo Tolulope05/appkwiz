@@ -2,6 +2,8 @@ import 'package:appkwiz/widgets/app_circle_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../configs/themes/app_colors.dart';
+
 class ApplictionIntroductionScreen extends StatelessWidget {
   const ApplictionIntroductionScreen({Key? key}) : super(key: key);
 
@@ -9,6 +11,7 @@ class ApplictionIntroductionScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        decoration: BoxDecoration(gradient: mainGradient(context)),
         alignment: Alignment.center,
         padding: EdgeInsets.symmetric(horizontal: Get.width * 0.2),
         child: Column(
