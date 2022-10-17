@@ -11,6 +11,8 @@ class AppCircleButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
+      type: MaterialType.transparency, // It removes the Background color
+      clipBehavior: Clip.hardEdge,
       shape: const CircleBorder(),
       child: InkWell(
         child: child,

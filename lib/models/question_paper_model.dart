@@ -12,8 +12,8 @@ class Answers {
 
   Map<String, dynamic> toJson() {
     Map<String, dynamic> data = <String, dynamic>{};
-    data['identifier'] = this.identifier;
-    data['Answer'] = this.answer;
+    data['identifier'] = identifier;
+    data['Answer'] = answer;
     return data;
   }
 }
@@ -43,12 +43,12 @@ class Questions {
 
   Map<String, dynamic> toJson() {
     Map<String, dynamic> data = <String, dynamic>{};
-    data['id'] = this.id;
-    data['question'] = this.question;
-    if (this.answers != null) {
-      data['answers'] = this.answers.map((e) => e.toJson()).toList();
+    data['id'] = id;
+    data['question'] = question;
+    if (answers != null) {
+      data['answers'] = answers.map((e) => e.toJson()).toList();
     }
-    data['correct_answer'] = this.correctAnswer;
+    data['correct_answer'] = correctAnswer;
     return data;
   }
 }
@@ -82,11 +82,11 @@ class QuestionPaperModel {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['id'] = this.id;
-    data['title'] = this.title;
-    data['image_url'] = this.imageUrl;
-    data['Description'] = this.description;
-    data['time_seconds'] = this.timeSeconds;
+    data['id'] = id;
+    data['title'] = title;
+    data['image_url'] = imageUrl;
+    data['Description'] = description;
+    data['time_seconds'] = timeSeconds;
     // if (this.questions != null) {
     //   data['questions'] = this.questions!.map((e) => e.toJson()).toList();
     // }
