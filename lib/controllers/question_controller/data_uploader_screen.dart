@@ -1,5 +1,5 @@
 import 'package:appkwiz/controllers/firebase_ref/loading_status.dart';
-import 'package:appkwiz/controllers/question_uploader/data_uploader.dart';
+import 'package:appkwiz/controllers/question_controller/data_uploader.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

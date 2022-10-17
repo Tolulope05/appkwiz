@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 
 class AppCircleButton extends StatelessWidget {
-  const AppCircleButton(
-      {Key? key, this.color, required this.child, this.width = 60, this.onTap})
-      : super(key: key);
+  const AppCircleButton({
+    Key? key,
+    this.color,
+    required this.child,
+    this.width = 60,
+    this.onTap,
+  }) : super(key: key);
   final Color? color;
   final Widget child;
   final double width;
@@ -15,6 +19,7 @@ class AppCircleButton extends StatelessWidget {
       clipBehavior: Clip.hardEdge,
       shape: const CircleBorder(),
       child: InkWell(
+        onTap: onTap,
         child: child,
       ),
     );

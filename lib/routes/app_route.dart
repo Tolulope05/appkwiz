@@ -1,3 +1,5 @@
+import 'package:appkwiz/controllers/question_controller/question_paper_controller.dart';
+import 'package:appkwiz/screens/home/home_screen.dart';
 import 'package:appkwiz/screens/splash/splash_screen.dart';
 import 'package:get/get.dart';
 
@@ -12,6 +14,15 @@ class Approute {
         GetPage(
           name: "/introduction",
           page: () => const ApplictionIntroductionScreen(),
+        ),
+        GetPage(
+          name: "/home",
+          page: () => const HomeScreen(),
+          binding: BindingsBuilder(
+            () {
+              Get.put(QuestionPaperController());
+            },
+          ),
         ),
       ];
 }
