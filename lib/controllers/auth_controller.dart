@@ -5,6 +5,7 @@ class AuthController extends GetxController {
   void onReady() {
     initAuth();
     super.onReady();
+    //onReady() which is called after the widget is rendered on the screen
   }
 
   Future<void> initAuth() async {
