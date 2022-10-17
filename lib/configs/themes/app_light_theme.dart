@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 
 const Color primaryLightColorLight = Color(0xFF3ACECB);
 const Color primaryColorLight = Color(0xFFF85187);
+const Color mainTextColor = Color.fromARGB(255, 40, 40, 40);
+// const Color primaryColorLight = Color(0xFFF85187);
 
 class LightTheme with SubThemeData {
 // Do something!
@@ -10,6 +12,10 @@ class LightTheme with SubThemeData {
     final ThemeData systemLightTheme = ThemeData.light();
     return systemLightTheme.copyWith(
       iconTheme: getIconTheme(),
+      textTheme: getTextTheme().apply(
+        bodyColor: mainTextColor,
+        displayColor: mainTextColor,
+      ),
     );
   }
 }

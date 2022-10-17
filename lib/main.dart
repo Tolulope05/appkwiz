@@ -1,4 +1,5 @@
 import 'package:appkwiz/bindings/initial_bindings.dart';
+import 'package:appkwiz/configs/themes/app_dark_theme.dart';
 import 'package:appkwiz/configs/themes/app_light_theme.dart';
 import 'package:appkwiz/routes/app_route.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      theme: LightTheme().buildLightTheme(),
+      theme: DarkTheme().buildDarkTheme(),
       debugShowCheckedModeBanner: false,
       getPages: Approute.routes(),
     );

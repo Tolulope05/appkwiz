@@ -26,7 +26,13 @@ class ApplictionIntroductionScreen extends StatelessWidget {
               height: 40,
             ),
             Text(
-                "This is a study app, You can use it as you want, If you understand how it works you would be able to scale it"),
+              "This is a study app,You can use it as you want, If you understand how it works you would be ableto scale it",
+              style: TextStyle(
+                fontSize: 18,
+                color: onSurfaceTextColor,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
             SizedBox(
               height: 40,
             ),

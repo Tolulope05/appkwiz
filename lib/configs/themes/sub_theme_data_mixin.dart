@@ -8,8 +8,8 @@ import 'app_colors.dart';
 // for the new class.
 
 mixin SubThemeData {
-  void getTextTheme() {
-    GoogleFonts.quicksandTextTheme(
+  TextTheme getTextTheme() {
+    return GoogleFonts.quicksandTextTheme(
       const TextTheme(
         bodyText1: TextStyle(
           fontWeight: FontWeight.w400,
