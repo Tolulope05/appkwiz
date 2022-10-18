@@ -1,8 +1,11 @@
 import 'dart:convert';
+import 'dart:io';
+import 'package:flutter/services.dart' show rootBundle;
 
 import 'package:appkwiz/controllers/firebase_ref/loading_status.dart';
 import 'package:appkwiz/models/question_paper_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -66,4 +69,19 @@ class DataUploader extends GetxController {
     await batch.commit(); // To submit everything in our firebase database
     loadingStatus.value = LoadingStatus.completed; // 1
   }
+
+  uploadImages() {
+    FirebaseStorage _storage = FirebaseStorage.instance;
+    // _storage.ref("question_paper_images").putFile()
+  }
+
+  // Future<File> getImageFileFromAssets(String path) async {
+  //   final byteData = await rootBundle.load('assets/$path');
+
+  //   // final file = File('${(await getTemporaryDirectory()).path}/$path'); //import 'package:path_provider/path_provider.dart';
+  //   await file.writeAsBytes(byteData.buffer
+  //       .asUint8List(byteData.offsetInBytes, byteData.lengthInBytes));
+
+  //   return file;
+  // } // for future purpose
 }
