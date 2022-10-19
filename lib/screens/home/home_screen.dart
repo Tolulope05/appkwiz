@@ -1,4 +1,5 @@
 import 'package:appkwiz/controllers/question_controller/question_paper_controller.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -17,17 +18,19 @@ class HomeScreen extends StatelessWidget {
               child: SizedBox(
                 height: 200,
                 width: 200,
-                child: FadeInImage(
-                  placeholder:
-                      const AssetImage("assets/images/app_splash_logo.png"),
-                  image: NetworkImage(
-                    _questionPaperController.allPaperImages[index],
+                child: CachedNetworkImage(
+                  placeholder: (context, url) => Container(
+                    alignment: Alignment.center,
+                    child: const CircularProgressIndicator(),
                   ),
+                  errorWidget: (context, url, error) =>
+                      Image.asset("assets/images/app_splash_logo.png"),
+                  imageUrl: _questionPaperController.allPapers[index].imageUrl!,
                 ),
               ),
             );
           },
-          itemCount: _questionPaperController.allPaperImages.length,
+          itemCount: _questionPaperController.allPapers.length,
           separatorBuilder: (BuildContext context, int index) {
             return const SizedBox(height: 20);
           },
