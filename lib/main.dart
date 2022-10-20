@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       // theme: Get.find<ThemeController>().darkTheme, // Late modifier not working
       theme: LightTheme().buildLightTheme(),
+      darkTheme: DarkTheme().buildDarkTheme(),
       debugShowCheckedModeBanner: false,
       getPages: Approute.routes(),
     );

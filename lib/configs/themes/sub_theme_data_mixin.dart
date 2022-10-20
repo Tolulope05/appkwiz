@@ -9,7 +9,7 @@ import 'app_colors.dart';
 
 mixin SubThemeData {
   TextTheme getTextTheme() {
-    return GoogleFonts.quicksandTextTheme(
+    return GoogleFonts.latoTextTheme(
       const TextTheme(
         bodyText1: TextStyle(
           fontWeight: FontWeight.w400,

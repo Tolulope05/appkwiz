@@ -1,4 +1,6 @@
+import 'package:appkwiz/configs/themes/ui_paramters.dart';
 import 'package:appkwiz/controllers/question_controller/question_paper_controller.dart';
+import 'package:appkwiz/widgets/question_card.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,21 +15,10 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: Obx(
         () => ListView.separated(
+          padding: UIParamters.mobileScreenPadding,
           itemBuilder: (BuildContext context, int index) {
-            return ClipRRect(
-              child: SizedBox(
-                height: 200,
-                width: 200,
-                child: CachedNetworkImage(
-                  placeholder: (context, url) => Container(
-                    alignment: Alignment.center,
-                    child: const CircularProgressIndicator(),
-                  ),
-                  errorWidget: (context, url, error) =>
-                      Image.asset("assets/images/app_splash_logo.png"),
-                  imageUrl: _questionPaperController.allPapers[index].imageUrl!,
-                ),
-              ),
+            return QuestionCard(
+              model: _questionPaperController.allPapers[index],
             );
           },
           itemCount: _questionPaperController.allPapers.length,

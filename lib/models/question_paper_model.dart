@@ -94,6 +94,13 @@ class QuestionPaperModel {
         questionCount = json['question_count'] as int,
         questions = [];
 
+  String timeInMinute() {
+    if (timeSeconds > 60) {
+      return "${timeSeconds / 60} mins";
+    }
+    return "$timeSeconds secs";
+  }
+
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
