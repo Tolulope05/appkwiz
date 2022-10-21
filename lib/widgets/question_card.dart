@@ -1,4 +1,5 @@
 import 'package:appkwiz/configs/themes/app_dark_theme.dart';
+import 'package:appkwiz/configs/themes/app_icons.dart';
 import 'package:appkwiz/configs/themes/app_light_theme.dart';
 import 'package:appkwiz/configs/themes/cusstom_text_style.dart';
 import 'package:appkwiz/configs/themes/ui_paramters.dart';
@@ -25,6 +26,7 @@ class QuestionCard extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.all(_padding),
         child: Stack(
+          clipBehavior: Clip.none,
           children: [
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -84,7 +86,29 @@ class QuestionCard extends StatelessWidget {
                   ),
                 ),
               ],
-            )
+            ),
+            Positioned(
+              bottom: -_padding,
+              right: -_padding,
+              child: GestureDetector(
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 12,
+                    horizontal: 20,
+                  ),
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).primaryColor,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(cardBorederRadius),
+                      bottomRight: Radius.circular(cardBorederRadius),
+                    ),
+                  ),
+                  child: const Icon(
+                    AppIcons.trophyOutline,
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
