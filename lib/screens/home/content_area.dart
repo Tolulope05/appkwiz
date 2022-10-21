@@ -23,10 +23,9 @@ class ContentArea extends StatelessWidget {
         padding: addPadding
             ? EdgeInsets.only(
                 top: mobilescreenPadding,
-                left: mobilescreenPadding,
-                right: mobilescreenPadding,
               )
             : EdgeInsets.zero,
+        child: child,
       ),
     );
   }
