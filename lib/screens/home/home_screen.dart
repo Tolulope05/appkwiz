@@ -16,67 +16,69 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     QuestionPaperController _questionPaperController =
         Get.find<QuestionPaperController>();
-    return Container(
-      // color: Colors.blueAccent,
-      decoration: BoxDecoration(gradient: mainGradient(context)),
-      child: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: EdgeInsets.all(mobilescreenPadding),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Icon(
-                    AppIcons.menuLeft,
-                  ),
-                  const SizedBox(height: 10),
-                  Row(
-                    children: [
-                      const Icon(
-                        AppIcons.peace,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 8.0),
-                        child: Text(
-                          "Hello Friend",
-                          style: detailsTextStyle.copyWith(
-                            color: onSurfaceTextColor,
+    return Scaffold(
+      body: Container(
+        // color: Colors.blueAccent,
+        decoration: BoxDecoration(gradient: mainGradient(context)),
+        child: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.all(mobilescreenPadding),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Icon(
+                      AppIcons.menuLeft,
+                    ),
+                    const SizedBox(height: 10),
+                    Row(
+                      children: [
+                        const Icon(
+                          AppIcons.peace,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 8.0),
+                          child: Text(
+                            "Hello Friend",
+                            style: detailsTextStyle.copyWith(
+                              color: onSurfaceTextColor,
+                            ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                  const Text(
-                    "What do you want to learn toay?",
-                    style: headerTextStyle,
-                  ),
-                ],
+                      ],
+                    ),
+                    const Text(
+                      "What do you want to learn toay?",
+                      style: headerTextStyle,
+                    ),
+                  ],
+                ),
               ),
-            ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                child: ContentArea(
-                  child: Obx(
-                    () => ListView.separated(
-                      padding: UIParamters.mobileScreenPadding,
-                      itemBuilder: (BuildContext context, int index) {
-                        return QuestionCard(
-                          model: _questionPaperController.allPapers[index],
-                        );
-                      },
-                      itemCount: _questionPaperController.allPapers.length,
-                      separatorBuilder: (BuildContext context, int index) {
-                        return const SizedBox(height: 20);
-                      },
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: ContentArea(
+                    child: Obx(
+                      () => ListView.separated(
+                        padding: UIParamters.mobileScreenPadding,
+                        itemBuilder: (BuildContext context, int index) {
+                          return QuestionCard(
+                            model: _questionPaperController.allPapers[index],
+                          );
+                        },
+                        itemCount: _questionPaperController.allPapers.length,
+                        separatorBuilder: (BuildContext context, int index) {
+                          return const SizedBox(height: 20);
+                        },
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
