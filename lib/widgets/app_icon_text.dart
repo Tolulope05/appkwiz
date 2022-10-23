@@ -1,4 +1,4 @@
-import 'package:appkwiz/configs/themes/cusstom_text_style.dart';
+import 'package:appkwiz/configs/themes/custom_text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

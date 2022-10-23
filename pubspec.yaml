@@ -12,6 +12,7 @@ dependencies:
   firebase_storage: ^10.3.11
   flutter:
     sdk: flutter
+  flutter_zoom_drawer: ^3.0.3
   get: ^4.6.5
   google_fonts: ^3.0.1
 dev_dependencies:

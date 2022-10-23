@@ -1,7 +1,7 @@
 import 'package:appkwiz/configs/themes/app_dark_theme.dart';
 import 'package:appkwiz/configs/themes/app_icons.dart';
 import 'package:appkwiz/configs/themes/app_light_theme.dart';
-import 'package:appkwiz/configs/themes/cusstom_text_style.dart';
+import 'package:appkwiz/configs/themes/custom_text_style.dart';
 import 'package:appkwiz/configs/themes/ui_paramters.dart';
 import 'package:appkwiz/models/question_paper_model.dart';
 import 'package:appkwiz/widgets/app_icon_text.dart';

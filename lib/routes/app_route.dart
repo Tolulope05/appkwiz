@@ -21,6 +21,7 @@ class Approute {
           binding: BindingsBuilder(
             () {
               Get.put(QuestionPaperController());
+              // Get.put(MyZoomDrawerController()); // attached to initial binding, It caused errors here
             },
           ),
         ),
