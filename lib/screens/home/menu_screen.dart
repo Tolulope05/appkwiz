@@ -1,8 +1,10 @@
 import 'package:appkwiz/configs/themes/app_colors.dart';
 import 'package:appkwiz/configs/themes/ui_paramters.dart';
+import 'package:appkwiz/controllers/zoom_drawer_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class MyMenuScreen extends StatelessWidget {
+class MyMenuScreen extends GetView<MyZoomDrawerController> {
   const MyMenuScreen({Key? key}) : super(key: key);
 
   @override
@@ -22,11 +24,11 @@ class MyMenuScreen extends StatelessWidget {
             children: [
               Positioned(
                 top: 0,
-                right: 020,
+                right: 0,
                 child: BackButton(
                   color: Colors.white,
                   onPressed: () {
-                    print("Hello");
+                    controller.toggleDrawer();
                   },
                 ),
               )
