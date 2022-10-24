@@ -11,3 +11,5 @@ DocumentReference questionRF({
 }) =>
     questionPaperRF.doc(paperID).collection("questions").doc(questionID);
 Reference get firebaseStorage => FirebaseStorage.instance.ref();
+
+final userRF = firestore.collection("users");
