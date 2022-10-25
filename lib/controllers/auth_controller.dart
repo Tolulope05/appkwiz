@@ -1,4 +1,5 @@
 import 'package:appkwiz/controllers/firebase_ref/references.dart';
+import 'package:appkwiz/widgets/dialogs/dialogue_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -55,6 +56,20 @@ class AuthController extends GetxController {
       "photoUrl": account.photoUrl,
       "id": account.id,
     });
+  }
+
+  void showLoginAlertDialogue() {
+    Get.dialog(
+      Dialogs.questionStartDialogue(onTap: () {
+        Get.back();
+        // Navigate to Login Page
+      }),
+      barrierDismissible: false,
+    );
+  }
+
+  bool isLoggedIn() {
+    return _auth.currentUser != null;
   }
 
   void navigateToIntroduction() {

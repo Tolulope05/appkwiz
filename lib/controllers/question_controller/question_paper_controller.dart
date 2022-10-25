@@ -1,3 +1,4 @@
+import 'package:appkwiz/controllers/auth_controller.dart';
 import 'package:appkwiz/models/question_paper_model.dart';
 import 'package:appkwiz/services/firebase_storage_services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -30,6 +31,22 @@ class QuestionPaperController extends GetxController {
     } catch (error) {
       print(error);
       // rethrow;
+    }
+  }
+
+  void navigateToQuestions(
+      {required QuestionPaperModel paper, bool tryAgain = false}) {
+    AuthController _authController = Get.find();
+    if (_authController.isLoggedIn()) {
+      if (tryAgain) {
+        Get.back();
+        // Get.offNamed(page);
+      } else {
+        // Get.toNamed(page);
+      }
+    } else {
+      print("The title is ${paper.title}");
+      _authController.showLoginAlertDialogue();
     }
   }
 }
