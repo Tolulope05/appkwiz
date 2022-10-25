@@ -34,22 +34,78 @@ class MyMenuScreen extends GetView<MyZoomDrawerController> {
               ),
               Column(
                 children: [
-                  Obx(() => controller.user.value == null
-                      ? SizedBox()
-                      : Text(
-                          controller.user.value!.displayName ?? "",
-                          style: const TextStyle(
-                            fontWeight: FontWeight.w900,
-                            fontSize: 18,
-                            color: onSurfaceTextColor,
+                  Obx(
+                    () => controller.user.value == null
+                        ? SizedBox()
+                        : Padding(
+                            padding: const EdgeInsets.only(
+                                // right: MediaQuery.of(context).size.width * 0.3,
+                                ),
+                            child: Text(
+                              controller.user.value!.displayName ?? "",
+                              style: const TextStyle(
+                                fontWeight: FontWeight.w900,
+                                fontSize: 18,
+                                color: onSurfaceTextColor,
+                              ),
+                            ),
                           ),
-                        ))
+                  ),
+                  const Spacer(
+                    flex: 1,
+                  ),
+                  _DrawerButton(
+                    icon: Icons.web,
+                    label: "Website",
+                    onPress: () => controller.website(),
+                  ),
+                  _DrawerButton(
+                    icon: Icons.facebook,
+                    label: "Facebook",
+                    onPress: () => controller.website(),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 25),
+                    child: _DrawerButton(
+                      icon: Icons.facebook,
+                      label: "Email",
+                      onPress: () => controller.email(),
+                    ),
+                  ),
+                  _DrawerButton(
+                    icon: Icons.logout,
+                    label: "Facebook",
+                    onPress: () => controller.signOut(),
+                  ),
                 ],
               ),
             ],
           ),
         ),
       ),
+    );
+  }
+}
+
+class _DrawerButton extends StatelessWidget {
+  const _DrawerButton({
+    Key? key,
+    required this.icon,
+    required this.label,
+    this.onPress,
+  }) : super(key: key);
+  final IconData icon;
+  final String label;
+  final VoidCallback? onPress;
+  @override
+  Widget build(BuildContext context) {
+    return TextButton.icon(
+      onPressed: () => onPress,
+      icon: Icon(
+        icon,
+        size: 15,
+      ),
+      label: Text(label),
     );
   }
 }

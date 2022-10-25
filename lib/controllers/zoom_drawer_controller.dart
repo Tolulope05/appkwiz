@@ -20,7 +20,10 @@ class MyZoomDrawerController extends GetxController {
     super.onReady();
   }
 
-  void signOut() {}
+  void signOut() {
+    try {} on FirebaseAuthException catch (e) {}
+  }
+
   void signIn() {}
   void email() {
     final Uri emailLaunchUri = Uri(
