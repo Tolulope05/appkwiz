@@ -1,5 +1,6 @@
 import 'package:appkwiz/controllers/question_controller/question_paper_controller.dart';
 import 'package:appkwiz/screens/home/home_screen.dart';
+import 'package:appkwiz/screens/login/login_screen.dart';
 import 'package:appkwiz/screens/splash/splash_screen.dart';
 import 'package:get/get.dart';
 
@@ -24,6 +25,10 @@ class Approute {
               // Get.put(MyZoomDrawerController()); // attached to initial binding, It caused errors here
             },
           ),
+        ),
+        GetPage(
+          name: "/login",
+          page: () => LoginScreen(),
         ),
       ];
 }

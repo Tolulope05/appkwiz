@@ -13,6 +13,7 @@ dependencies:
   firebase_storage: null
   flutter:
     sdk: flutter
+  flutter_svg: ^1.1.6
   flutter_zoom_drawer: ^3.0.3
   get: ^4.6.5
   google_fonts: ^3.0.1
