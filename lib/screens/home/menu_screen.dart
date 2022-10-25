@@ -31,7 +31,21 @@ class MyMenuScreen extends GetView<MyZoomDrawerController> {
                     controller.toggleDrawer();
                   },
                 ),
-              )
+              ),
+              Column(
+                children: [
+                  Obx(() => controller.user.value == null
+                      ? SizedBox()
+                      : Text(
+                          controller.user.value!.displayName ?? "",
+                          style: const TextStyle(
+                            fontWeight: FontWeight.w900,
+                            fontSize: 18,
+                            color: onSurfaceTextColor,
+                          ),
+                        ))
+                ],
+              ),
             ],
           ),
         ),

@@ -12,12 +12,10 @@ import '../services/firebase_storage_services.dart';
 class InitialBindings implements Bindings {
   @override
   void dependencies() {
-    Get.put(ThemeController(), permanent: true);
+    Get.put(ThemeController());
     Get.put(AuthController(), permanent: true);
     Get.put(QuestionPaperController(), permanent: true);
-    Get.put(
-      FirebaseStorageServices(),
-    ); // not sure if this is supposed to be there
-    Get.put(MyZoomDrawerController());
+    Get.lazyPut(() => MyZoomDrawerController());
+    Get.lazyPut(() => FirebaseStorageServices());
   }
 }

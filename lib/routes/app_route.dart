@@ -4,6 +4,7 @@ import 'package:appkwiz/screens/login/login_screen.dart';
 import 'package:appkwiz/screens/splash/splash_screen.dart';
 import 'package:get/get.dart';
 
+import '../controllers/zoom_drawer_controller.dart';
 import '../screens/introduction/introduction.dart';
 
 class Approute {
@@ -22,7 +23,8 @@ class Approute {
           binding: BindingsBuilder(
             () {
               Get.put(QuestionPaperController());
-              // Get.put(MyZoomDrawerController()); // attached to initial binding, It caused errors here
+              Get.put(
+                  MyZoomDrawerController()); // attached to initial binding, It caused errors here
             },
           ),
         ),

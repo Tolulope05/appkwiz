@@ -68,8 +68,14 @@ The certificate uses the SHA1withRSA signature algorithm which is considered a s
       "email": account.email,
       "displayName": account.displayName,
       "photoUrl": account.photoUrl,
-      // "id": account.id,
+      "id": account.id,
     });
+  }
+
+  User? getUser() {
+    _user.value = _auth.currentUser;
+    print(_user.value);
+    return _user.value;
   }
 
   void showLoginAlertDialogue() {

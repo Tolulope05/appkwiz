@@ -42,6 +42,7 @@ class QuestionPaperController extends GetxController {
         Get.back();
         // Get.offNamed(page);
       } else {
+        print("Logged in");
         // Get.toNamed(page);
       }
     } else {
