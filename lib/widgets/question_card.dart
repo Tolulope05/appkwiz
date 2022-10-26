@@ -25,7 +25,9 @@ class QuestionCard extends GetView<QuestionPaperController> {
           color: Theme.of(context).cardColor),
       child: InkWell(
         onTap: () {
-          controller.navigateToQuestions(paper: model);
+          controller.navigateToQuestions(
+            paper: model,
+          );
         },
         child: Padding(
           padding: EdgeInsets.all(_padding),

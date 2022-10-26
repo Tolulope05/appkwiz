@@ -59,6 +59,7 @@ class HomeScreen extends GetView<MyZoomDrawerController> {
                             children: [
                               const Icon(
                                 AppIcons.peace,
+                                size: 16,
                               ),
                               Padding(
                                 padding:
@@ -67,13 +68,14 @@ class HomeScreen extends GetView<MyZoomDrawerController> {
                                   "Hello Friend",
                                   style: detailsTextStyle.copyWith(
                                     color: onSurfaceTextColor,
+                                    fontSize: 16,
                                   ),
                                 ),
                               ),
                             ],
                           ),
                           const Text(
-                            "What do you want to learn toay?",
+                            "What do you want to learn today?",
                             style: headerTextStyle,
                           ),
                         ],

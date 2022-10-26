@@ -1,5 +1,6 @@
 import 'package:appkwiz/controllers/auth_controller.dart';
 import 'package:appkwiz/models/question_paper_model.dart';
+import 'package:appkwiz/screens/question/question_screen.dart';
 import 'package:appkwiz/services/firebase_storage_services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
@@ -43,7 +44,10 @@ class QuestionPaperController extends GetxController {
         // Get.offNamed(page);
       } else {
         print("Logged in");
-        // Get.toNamed(page);
+        Get.toNamed(
+          QuestionScreen.routeName,
+          arguments: paper,
+        );
       }
     } else {
       print("The title is ${paper.title}");

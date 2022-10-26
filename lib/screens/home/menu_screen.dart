@@ -36,7 +36,7 @@ class MyMenuScreen extends GetView<MyZoomDrawerController> {
                 children: [
                   Obx(
                     () => controller.user.value == null
-                        ? SizedBox()
+                        ? const SizedBox()
                         : Padding(
                             padding: const EdgeInsets.only(
                                 // right: MediaQuery.of(context).size.width * 0.3,
