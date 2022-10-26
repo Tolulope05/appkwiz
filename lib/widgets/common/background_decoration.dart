@@ -39,11 +39,19 @@ class BackgroundPainter extends CustomPainter {
     // Paint paint1 = Paint();
     // paint1.color = Colors.white;
     final path = Path();
+    final path2 = Path();
     path.moveTo(0, 0);
     path.lineTo(size.width * 0.2, 0);
     path.lineTo(0, size.height * 0.4);
     path.close();
     canvas.drawPath(path, paint);
+    // Path2
+    path2.moveTo(size.width, 0);
+    path2.lineTo(size.width * 0.8, 0);
+    path2.lineTo(size.width * 0.2, size.height);
+    path2.lineTo(size.width, size.height);
+    path2.close();
+    canvas.drawPath(path2, paint);
   }
 
   @override
