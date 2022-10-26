@@ -20,8 +20,8 @@ class MyZoomDrawerController extends GetxController {
     super.onReady();
   }
 
-  void signOut() {
-    try {} on FirebaseAuthException catch (e) {}
+  signOut() {
+    Get.find<AuthController>().signOut();
   }
 
   void signIn() {}
@@ -40,5 +40,19 @@ class MyZoomDrawerController extends GetxController {
     launchUrl(urlString);
   }
 
-  void website() {}
+  void website() {
+    final Uri websiteLaunchUri = Uri(
+      path: "https://tolcoder.herokuapp.scom",
+    );
+    _launch(websiteLaunchUri);
+    _launch(Uri());
+  }
+
+  void facebook() {
+    final Uri websiteLaunchUri = Uri(
+      path: "https://facebook.com/fakunletolulope",
+    );
+    _launch(websiteLaunchUri);
+    _launch(Uri());
+  }
 }

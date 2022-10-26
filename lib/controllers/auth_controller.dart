@@ -1,9 +1,13 @@
 import 'package:appkwiz/controllers/firebase_ref/references.dart';
+import 'package:appkwiz/screens/home/home_screen.dart';
+import 'package:appkwiz/screens/introduction/introduction.dart';
 import 'package:appkwiz/screens/login/login_screen.dart';
 import 'package:appkwiz/widgets/dialogs/dialogue_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+
+import '../logger/app_logger.dart';
 
 class AuthController extends GetxController {
   @override
@@ -44,9 +48,10 @@ class AuthController extends GetxController {
         );
         await _auth.signInWithCredential(_credential);
         await saveUser(account);
+        navigateToHomepage();
       }
     } on Exception catch (error) {
-      print(error);
+      AppLogger.e(error);
     }
   } // C:\Users\hp
   //keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android
@@ -98,6 +103,20 @@ The certificate uses the SHA1withRSA signature algorithm which is considered a s
   }
 
   void navigateToIntroduction() {
-    Get.offAllNamed("/introduction");
+    Get.offAllNamed(ApplictionIntroductionScreen.routeName);
+  }
+
+  void navigateToHomepage() {
+    Get.offAllNamed(HomeScreen.routeName);
+  }
+
+  Future<void> signOut() async {
+    AppLogger.d("Sign out Called");
+    try {
+      await _auth.signOut();
+      navigateToHomepage();
+    } on FirebaseAuthException catch (e) {
+      AppLogger.e(e);
+    }
   }
 }

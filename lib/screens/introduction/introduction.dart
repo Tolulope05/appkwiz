@@ -7,6 +7,7 @@ import '../../configs/themes/app_colors.dart';
 
 class ApplictionIntroductionScreen extends StatelessWidget {
   const ApplictionIntroductionScreen({Key? key}) : super(key: key);
+  static String routeName = "/introduction";
 
   @override
   Widget build(BuildContext context) {

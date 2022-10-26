@@ -14,11 +14,11 @@ class Approute {
           page: () => const SplashScreen(),
         ),
         GetPage(
-          name: "/introduction",
+          name: ApplictionIntroductionScreen.routeName,
           page: () => const ApplictionIntroductionScreen(),
         ),
         GetPage(
-          name: "/home",
+          name: HomeScreen.routeName,
           page: () => const HomeScreen(),
           binding: BindingsBuilder(
             () {
@@ -29,7 +29,7 @@ class Approute {
           ),
         ),
         GetPage(
-          name: "/login",
+          name: LoginScreen.routeName,
           page: () => LoginScreen(),
         ),
       ];

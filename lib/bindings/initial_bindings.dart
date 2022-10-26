@@ -15,7 +15,7 @@ class InitialBindings implements Bindings {
     Get.put(ThemeController());
     Get.put(AuthController(), permanent: true);
     Get.put(QuestionPaperController(), permanent: true);
-    Get.lazyPut(() => MyZoomDrawerController());
+    Get.lazyPut(() => MyZoomDrawerController(), fenix: true);
     Get.lazyPut(() => FirebaseStorageServices());
   }
 }
