@@ -1,3 +1,4 @@
+import 'package:appkwiz/controllers/firebase_ref/loading_status.dart';
 import 'package:appkwiz/controllers/firebase_ref/references.dart';
 import 'package:appkwiz/models/question_paper_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -5,8 +6,10 @@ import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 
 class QuestionsController extends GetxController {
+  final Rx<LoadingStatus> loadingStatus = LoadingStatus.loading.obs;
   late QuestionPaperModel questionPaperModel;
   final List<Questions> allquestions = <Questions>[];
+
   @override
   void onReady() {
     final _questionPaper = Get.arguments as QuestionPaperModel;
@@ -16,6 +19,7 @@ class QuestionsController extends GetxController {
 
   void loadData(QuestionPaperModel questionPaper) async {
     questionPaperModel = questionPaper;
+    loadingStatus.value = LoadingStatus.loading;
     try {
       final QuerySnapshot<Map<String, dynamic>> questionQuery =
           await questionPaperRF
@@ -49,7 +53,10 @@ class QuestionsController extends GetxController {
           allquestions.assignAll(
             questionPaper.questions!,
           ); // saving all qiestrions in this variable
-
+          print(questionPaper.questions![0]);
+          loadingStatus.value = LoadingStatus.completed;
+        } else {
+          loadingStatus.value = LoadingStatus.error;
         }
       }
     } catch (e) {
