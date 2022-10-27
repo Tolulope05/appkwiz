@@ -9,7 +9,6 @@ class QuestionsController extends GetxController {
   @override
   void onReady() {
     final _questionPaper = Get.arguments as QuestionPaperModel;
-    print(_questionPaper.title);
     loadData(_questionPaper);
     super.onReady();
   }
@@ -37,6 +36,11 @@ class QuestionsController extends GetxController {
                 .doc(_questions.id)
                 .collection("answers")
                 .get();
+
+        final answers = answersQuery.docs
+            .map((answer) => Answers.fromSnapshot(answer))
+            .toList();
+        _questions.answers = answers;
       }
     } catch (e) {
       if (kDebugMode) print(e.toString());

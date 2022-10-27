@@ -11,19 +11,19 @@
             "answers": [
                 {
                     "identifier": "A",
-                    "Answer": "45"
+                    "answer": "45"
                 },
                 {
                     "identifier": "B",
-                    "Answer": "108"
+                    "answer": "108"
                 },
                 {
                     "identifier": "C",
-                    "Answer": "54"
+                    "answer": "54"
                 },
                 {
                     "identifier": "D",
-                    "Answer": "37"
+                    "answer": "37"
                 }
             ],
             "correct_answer": "C"
@@ -34,19 +34,19 @@
             "answers": [
                 {
                     "identifier": "A",
-                    "Answer": "74"
+                    "answer": "74"
                 },
                 {
                     "identifier": "B",
-                    "Answer": "22"
+                    "answer": "22"
                 },
                 {
                     "identifier": "C",
-                    "Answer": "80"
+                    "answer": "80"
                 },
                 {
                     "identifier": "D",
-                    "Answer": "47"
+                    "answer": "47"
                 }
             ],
             "correct_answer": "D"
@@ -57,19 +57,19 @@
             "answers": [
                 {
                     "identifier": "A",
-                    "Answer": "17"
+                    "answer": "17"
                 },
                 {
                     "identifier": "B",
-                    "Answer": "35/100"
+                    "answer": "35/100"
                 },
                 {
                     "identifier": "C",
-                    "Answer": "30/100"
+                    "answer": "30/100"
                 },
                 {
                     "identifier": "D",
-                    "Answer": "17/100"
+                    "answer": "17/100"
                 }
             ],
             "correct_answer": "B"
@@ -80,19 +80,19 @@
             "answers": [
                 {
                     "identifier": "A",
-                    "Answer": "20 times"
+                    "answer": "20 times"
                 },
                 {
                     "identifier": "B",
-                    "Answer": "100 times"
+                    "answer": "100 times"
                 },
                 {
                     "identifier": "C",
-                    "Answer": "10 times"
+                    "answer": "10 times"
                 },
                 {
                     "identifier": "D",
-                    "Answer": "1 time"
+                    "answer": "1 time"
                 }
             ],
             "correct_answer": "C"
@@ -103,19 +103,19 @@
             "answers": [
                 {
                     "identifier": "A",
-                    "Answer": "5"
+                    "answer": "5"
                 },
                 {
                     "identifier": "B",
-                    "Answer": "3"
+                    "answer": "3"
                 },
                 {
                     "identifier": "C",
-                    "Answer": "2"
+                    "answer": "2"
                 },
                 {
                     "identifier": "D",
-                    "Answer": "4"
+                    "answer": "4"
                 }
             ],
             "correct_answer": "D"

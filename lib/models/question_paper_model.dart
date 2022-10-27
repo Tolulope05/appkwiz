@@ -10,12 +10,16 @@ class Answers {
 
   Answers.fromJson(Map<String, dynamic> json)
       : identifier = json['identifier'],
-        answer = json['Answer'];
+        answer = json['answer'];
+
+  Answers.fromSnapshot(DocumentSnapshot<Map<String, dynamic>> json)
+      : identifier = json['identifier'] as String,
+        answer = json['answer'] as String;
 
   Map<String, dynamic> toJson() {
     Map<String, dynamic> data = <String, dynamic>{};
     data['identifier'] = identifier;
-    data['Answer'] = answer;
+    data['answer'] = answer;
     return data;
   }
 }
