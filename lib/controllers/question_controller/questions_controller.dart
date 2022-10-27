@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 
 class QuestionsController extends GetxController {
   late QuestionPaperModel questionPaperModel;
+  final List<Questions> allquestions = <Questions>[];
   @override
   void onReady() {
     final _questionPaper = Get.arguments as QuestionPaperModel;
@@ -41,6 +42,15 @@ class QuestionsController extends GetxController {
             .map((answer) => Answers.fromSnapshot(answer))
             .toList();
         _questions.answers = answers;
+
+        // done
+        if (questionPaper.questions != null &&
+            questionPaper.questions!.isNotEmpty) {
+          allquestions.assignAll(
+            questionPaper.questions!,
+          ); // saving all qiestrions in this variable
+
+        }
       }
     } catch (e) {
       if (kDebugMode) print(e.toString());

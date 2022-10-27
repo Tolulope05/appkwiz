@@ -12,7 +12,7 @@ class Answers {
       : identifier = json['identifier'],
         answer = json['answer'];
 
-  Answers.fromSnapshot(DocumentSnapshot<Map<String, dynamic>> json)
+  Answers.fromSnapshot(QueryDocumentSnapshot<Map<String, dynamic>> json)
       : identifier = json['identifier'] as String,
         answer = json['answer'] as String;
 
@@ -47,8 +47,8 @@ class Questions {
             .toList(),
         correctAnswer = json['correct_answer'];
 
-  Questions.fromQuerySnapshots(DocumentSnapshot<Map<String, dynamic>> json)
-      : answers = json['answers'],
+  Questions.fromQuerySnapshots(QueryDocumentSnapshot<Map<String, dynamic>> json)
+      : answers = [],
         correctAnswer = json['correct_answer'],
         id = json.id,
         question = json['question'];
@@ -95,7 +95,8 @@ class QuestionPaperModel {
             .map((ques) => Questions.fromJson(ques))
             .toList();
 
-  QuestionPaperModel.fromSnapshot(DocumentSnapshot<Map<String, dynamic>> json)
+  QuestionPaperModel.fromSnapshot(
+      QueryDocumentSnapshot<Map<String, dynamic>> json)
       : id = json.id,
         title = json['title'],
         imageUrl = json['image_url'],
