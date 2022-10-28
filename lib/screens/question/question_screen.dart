@@ -1,4 +1,5 @@
 import 'package:appkwiz/configs/themes/custom_text_style.dart';
+import 'package:appkwiz/configs/themes/ui_paramters.dart';
 import 'package:appkwiz/controllers/firebase_ref/loading_status.dart';
 import 'package:appkwiz/controllers/question_controller/questions_controller.dart';
 import 'package:appkwiz/screens/home/content_area.dart';
@@ -31,7 +32,11 @@ class QuestionScreen extends GetView<QuestionsController> {
                 Expanded(
                   child: ContentArea(
                     child: SingleChildScrollView(
-                      padding: const EdgeInsets.only(top: 25),
+                      padding: EdgeInsets.only(
+                        top: mobilescreenPadding,
+                        right: mobilescreenPadding - 5,
+                        left: mobilescreenPadding - 5,
+                      ),
                       child: Column(
                         children: [
                           Text(
@@ -39,11 +44,12 @@ class QuestionScreen extends GetView<QuestionsController> {
                             style: questionsTextStyle,
                           ),
                           GetBuilder<QuestionsController>(
+                            id: "answers_lists",
                             builder: (context) {
                               return ListView.separated(
                                 shrinkWrap: true,
                                 padding: const EdgeInsets.only(top: 25),
-                                physics: NeverScrollableScrollPhysics(),
+                                physics: const NeverScrollableScrollPhysics(),
                                 itemCount: controller
                                     .currentQuestions.value!.answers.length,
                                 separatorBuilder: (context, index) =>

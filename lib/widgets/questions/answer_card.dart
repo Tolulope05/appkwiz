@@ -30,7 +30,9 @@ class AnswerCard extends StatelessWidget {
         ),
         child: Text(
           answer,
-          style: TextStyle(color: isSelected ? onSurfaceTextColor : null),
+          style: TextStyle(
+            color: isSelected ? onSurfaceTextColor : null,
+          ),
         ),
       ),
     );
