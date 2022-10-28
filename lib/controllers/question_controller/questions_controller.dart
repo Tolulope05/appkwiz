@@ -65,4 +65,9 @@ class QuestionsController extends GetxController {
       if (kDebugMode) print(e.toString());
     }
   }
+
+  void selectedAnswer(String? answer) {
+    currentQuestions.value!.selectedAnswer = answer;
+    update();
+  }
 }
