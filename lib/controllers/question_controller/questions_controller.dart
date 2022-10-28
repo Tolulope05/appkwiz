@@ -9,6 +9,9 @@ class QuestionsController extends GetxController {
   final Rx<LoadingStatus> loadingStatus = LoadingStatus.loading.obs;
   late QuestionPaperModel questionPaperModel;
   final List<Questions> allquestions = <Questions>[];
+  final questionIndex = 0.obs;
+  bool get isFirstQuestion => questionIndex.value > 0;
+  bool get isLastQuestion => questionIndex.value >= allquestions.length - 1;
   Rxn<Questions> currentQuestions = Rxn<Questions>();
 
   @override
@@ -69,5 +72,21 @@ class QuestionsController extends GetxController {
   void selectedAnswer(String? answer) {
     currentQuestions.value!.selectedAnswer = answer;
     update(["answers_lists"]);
+  }
+
+  void nextQuestion() {
+    if (questionIndex.value >= allquestions.length - 1) {
+      return;
+    }
+    questionIndex.value++;
+    currentQuestions.value = allquestions[questionIndex.value];
+  }
+
+  void prevQuestion() {
+    if (questionIndex.value <= 0) {
+      return;
+    }
+    questionIndex.value--;
+    currentQuestions.value = allquestions[questionIndex.value];
   }
 }
