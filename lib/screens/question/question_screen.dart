@@ -38,10 +38,10 @@ class QuestionScreen extends GetView<QuestionsController> {
           child: const Text("Timer"),
         ),
         showActionButton: true,
-        titleWidget: const Text(
-          "1",
-          style: appBarTS,
-        ),
+        titleWidget: Obx(() => Text(
+              "Q ${(controller.questionIndex.value + 1).toString().padLeft(2, '0')}",
+              style: appBarTS,
+            )),
       ),
       body: BackgroundDecoration(
         child: Obx(

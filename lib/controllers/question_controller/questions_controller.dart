@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:appkwiz/controllers/firebase_ref/loading_status.dart';
 import 'package:appkwiz/controllers/firebase_ref/references.dart';
 import 'package:appkwiz/models/question_paper_model.dart';
@@ -13,6 +15,11 @@ class QuestionsController extends GetxController {
   bool get isFirstQuestion => questionIndex.value > 0;
   bool get isLastQuestion => questionIndex.value >= allquestions.length - 1;
   Rxn<Questions> currentQuestions = Rxn<Questions>();
+
+  // Timer
+  Timer? _timer;
+  int remainSeconds = 1;
+  final RxString time = "00.00".obs;
 
   @override
   void onReady() {
@@ -88,5 +95,15 @@ class QuestionsController extends GetxController {
     }
     questionIndex.value--;
     currentQuestions.value = allquestions[questionIndex.value];
+  }
+
+  void startTmer(int seconds) {
+    const duration = Duration(seconds: 1);
+    remainSeconds = seconds;
+    Timer.periodic(duration, (Timer timer) {
+      if (remainSeconds == 0) {
+        timer.cancel();
+      }
+    });
   }
 }
