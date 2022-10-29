@@ -4,6 +4,7 @@ import 'package:appkwiz/configs/themes/ui_paramters.dart';
 import 'package:appkwiz/controllers/firebase_ref/loading_status.dart';
 import 'package:appkwiz/controllers/question_controller/questions_controller.dart';
 import 'package:appkwiz/screens/home/content_area.dart';
+import 'package:appkwiz/widgets/common/custom_app_bar.dart';
 import 'package:appkwiz/widgets/common/main_button.dart';
 import 'package:appkwiz/widgets/questions/answer_card.dart';
 import 'package:appkwiz/widgets/screen_shimmer/question_placeholer.dart';
@@ -19,6 +20,29 @@ class QuestionScreen extends GetView<QuestionsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: CustomAppBar(
+        leading: Container(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 8,
+            vertical: 4,
+          ),
+          decoration: const ShapeDecoration(
+            shape: StadiumBorder(
+              side: BorderSide(
+                color: onSurfaceTextColor,
+                width: 2,
+              ),
+            ),
+          ),
+          child: const Text("Timer"),
+        ),
+        showActionButton: true,
+        titleWidget: const Text(
+          "1",
+          style: appBarTS,
+        ),
+      ),
       body: BackgroundDecoration(
         child: Obx(
           () => Column(

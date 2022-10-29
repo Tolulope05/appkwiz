@@ -25,7 +25,7 @@ class BackgroundDecoration extends StatelessWidget {
             ),
           ),
         ),
-        Positioned(child: child)
+        Positioned.fill(child: SafeArea(child: child))
       ],
     );
   }
@@ -36,8 +36,6 @@ class BackgroundPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()..color = Colors.white.withOpacity(0.1);
     //..color means from Paint object you take the color type and assign color to it same with below
-    // Paint paint1 = Paint();
-    // paint1.color = Colors.white;
     final path = Path();
     final path2 = Path();
     path.moveTo(0, 0);
