@@ -3,11 +3,11 @@ import 'package:appkwiz/controllers/question_controller/questions_controller.dar
 import 'package:appkwiz/screens/home/home_screen.dart';
 import 'package:appkwiz/screens/login/login_screen.dart';
 import 'package:appkwiz/screens/question/question_screen.dart';
+import 'package:appkwiz/screens/question/test_overview_screen.dart';
 import 'package:appkwiz/screens/splash/splash_screen.dart';
 import 'package:get/get.dart';
 
 import '../controllers/zoom_drawer_controller.dart';
-import '../models/question_paper_model.dart';
 import '../screens/introduction/introduction.dart';
 
 class Approute {
@@ -39,6 +39,15 @@ class Approute {
         GetPage(
           name: QuestionScreen.routeName,
           page: () => const QuestionScreen(),
+          binding: BindingsBuilder(
+            () {
+              Get.put(QuestionsController());
+            },
+          ),
+        ),
+        GetPage(
+          name: TestOverviewScreen.routeName,
+          page: () => const TestOverviewScreen(),
           binding: BindingsBuilder(
             () {
               Get.put(QuestionsController());

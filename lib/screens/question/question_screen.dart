@@ -4,6 +4,7 @@ import 'package:appkwiz/configs/themes/ui_paramters.dart';
 import 'package:appkwiz/controllers/firebase_ref/loading_status.dart';
 import 'package:appkwiz/controllers/question_controller/questions_controller.dart';
 import 'package:appkwiz/screens/home/content_area.dart';
+import 'package:appkwiz/screens/question/test_overview_screen.dart';
 import 'package:appkwiz/widgets/common/custom_app_bar.dart';
 import 'package:appkwiz/widgets/common/main_button.dart';
 import 'package:appkwiz/widgets/questions/answer_card.dart';
@@ -36,16 +37,21 @@ class QuestionScreen extends GetView<QuestionsController> {
               ),
             ),
           ),
-          child: Obx(() => CountDownTimer(
-                time: controller.time.value,
-                color: onSurfaceTextColor,
-              )),
+          child: Obx(
+            () => CountDownTimer(
+              time: controller.time.value,
+              color: onSurfaceTextColor,
+            ),
+          ),
         ),
         showActionButton: true,
-        titleWidget: Obx(() => Text(
-              "Q ${(controller.questionIndex.value + 1).toString().padLeft(2, '0')}",
-              style: appBarTS,
-            )),
+        titleWidget: Obx(
+          () => Text(
+            "Q ${(controller.questionIndex.value + 1).toString().padLeft(2, '0')}",
+            style: appBarTS,
+          ),
+        ),
+        onMenuActionTap: () => Get.toNamed(TestOverviewScreen.routeName),
       ),
       body: BackgroundDecoration(
         child: Obx(
@@ -138,7 +144,7 @@ class QuestionScreen extends GetView<QuestionsController> {
                           child: MainButton(
                             onTap: () {
                               controller.isLastQuestion
-                                  ? Container()
+                                  ? Get.toNamed(TestOverviewScreen.routeName)
                                   : controller.nextQuestion();
                             },
                             title:
