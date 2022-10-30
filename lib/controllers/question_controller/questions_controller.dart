@@ -81,6 +81,14 @@ class QuestionsController extends GetxController {
     update(["answers_lists"]);
   }
 
+  String get completedTest {
+    final answered = allquestions
+        .where((element) => element.selectedAnswer != null)
+        .toList()
+        .length;
+    return "$answered out of ${allquestions.length} answered";
+  }
+
   void nextQuestion() {
     if (questionIndex.value >= allquestions.length - 1) {
       return;

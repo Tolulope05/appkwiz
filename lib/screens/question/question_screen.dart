@@ -70,8 +70,6 @@ class QuestionScreen extends GetView<QuestionsController> {
                     child: SingleChildScrollView(
                       padding: EdgeInsets.only(
                         top: mobilescreenPadding,
-                        right: mobilescreenPadding - 5,
-                        left: mobilescreenPadding - 5,
                       ),
                       child: Column(
                         children: [
