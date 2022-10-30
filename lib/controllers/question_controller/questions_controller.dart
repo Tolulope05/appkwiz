@@ -19,7 +19,7 @@ class QuestionsController extends GetxController {
   // Timer
   Timer? _timer;
   int remainSeconds = 1;
-  final RxString time = "00.00".obs;
+  final RxString time = "00:00".obs;
 
   @override
   void onReady() {
@@ -57,22 +57,22 @@ class QuestionsController extends GetxController {
             .map((answer) => Answers.fromSnapshot(answer))
             .toList();
         _questions.answers = answers;
-
-        // done
-        if (questionPaper.questions != null &&
-            questionPaper.questions!.isNotEmpty) {
-          allquestions.assignAll(
-            questionPaper.questions!,
-          ); // saving all qiestrions in this variable
-          // print(questionPaper.questions![0]);
-          currentQuestions.value = questionPaper.questions![0];
-          loadingStatus.value = LoadingStatus.completed;
-        } else {
-          loadingStatus.value = LoadingStatus.error;
-        }
       }
     } catch (e) {
       if (kDebugMode) print(e.toString());
+    }
+    // done
+    if (questionPaper.questions != null &&
+        questionPaper.questions!.isNotEmpty) {
+      allquestions.assignAll(
+        questionPaper.questions!,
+      ); // saving all qiestrions in this variable
+      // print(questionPaper.questions![0]);
+      currentQuestions.value = questionPaper.questions![0];
+      startTimer(questionPaper.timeSeconds);
+      loadingStatus.value = LoadingStatus.completed;
+    } else {
+      loadingStatus.value = LoadingStatus.error;
     }
   }
 
@@ -97,13 +97,22 @@ class QuestionsController extends GetxController {
     currentQuestions.value = allquestions[questionIndex.value];
   }
 
-  void startTmer(int seconds) {
+  void startTimer(int seconds) {
     const duration = Duration(seconds: 1);
     remainSeconds = seconds;
-    Timer.periodic(duration, (Timer timer) {
-      if (remainSeconds == 0) {
-        timer.cancel();
-      }
-    });
+    Timer.periodic(
+      duration,
+      (Timer timer) {
+        if (remainSeconds == 0) {
+          timer.cancel();
+        } else {
+          int minutes = remainSeconds ~/ 60;
+          int seconds = remainSeconds % 60;
+          time.value =
+              "${minutes.toString().padLeft(2, "0")}:${seconds.toString().padLeft(2, "0")}";
+          remainSeconds--;
+        }
+      },
+    );
   }
 }

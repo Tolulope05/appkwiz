@@ -1,5 +1,6 @@
 import 'package:appkwiz/configs/themes/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'ui_paramters.dart';
 
@@ -21,3 +22,10 @@ const headerTextStyle = TextStyle(
 
 const appBarTS = TextStyle(
     fontWeight: FontWeight.bold, fontSize: 16, color: onSurfaceTextColor);
+
+TextStyle countDownTimerTS() => TextStyle(
+      color: UIParamters.isDarkMode()
+          ? Theme.of(Get.context!).textTheme.bodyText1!.color
+          : onSurfaceTextColor,
+      letterSpacing: 2,
+    );

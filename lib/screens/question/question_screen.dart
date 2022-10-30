@@ -7,6 +7,7 @@ import 'package:appkwiz/screens/home/content_area.dart';
 import 'package:appkwiz/widgets/common/custom_app_bar.dart';
 import 'package:appkwiz/widgets/common/main_button.dart';
 import 'package:appkwiz/widgets/questions/answer_card.dart';
+import 'package:appkwiz/widgets/questions/count_down_timer.dart';
 import 'package:appkwiz/widgets/screen_shimmer/question_placeholer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -35,7 +36,10 @@ class QuestionScreen extends GetView<QuestionsController> {
               ),
             ),
           ),
-          child: const Text("Timer"),
+          child: Obx(() => CountDownTimer(
+                time: controller.time.value,
+                color: onSurfaceTextColor,
+              )),
         ),
         showActionButton: true,
         titleWidget: Obx(() => Text(

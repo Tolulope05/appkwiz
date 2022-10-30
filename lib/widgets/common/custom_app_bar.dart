@@ -57,7 +57,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                       onTap: () => onMenuActionTap,
                       child: const Padding(
                         padding: EdgeInsets.all(8.0),
-                        child: Icon(AppIcons.menuLeft),
+                        child: Icon(AppIcons.menu),
                       ),
                     ),
                   ),
