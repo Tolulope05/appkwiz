@@ -3,6 +3,7 @@ import 'package:appkwiz/controllers/question_controller/questions_controller.dar
 import 'package:appkwiz/screens/home/home_screen.dart';
 import 'package:appkwiz/screens/login/login_screen.dart';
 import 'package:appkwiz/screens/question/question_screen.dart';
+import 'package:appkwiz/screens/question/result_screen.dart';
 import 'package:appkwiz/screens/question/test_overview_screen.dart';
 import 'package:appkwiz/screens/splash/splash_screen.dart';
 import 'package:get/get.dart';
@@ -48,6 +49,15 @@ class Approute {
         GetPage(
           name: TestOverviewScreen.routeName,
           page: () => const TestOverviewScreen(),
+          binding: BindingsBuilder(
+            () {
+              Get.put(QuestionsController());
+            },
+          ),
+        ),
+        GetPage(
+          name: ResultScreen.routeName,
+          page: () => const ResultScreen(),
           binding: BindingsBuilder(
             () {
               Get.put(QuestionsController());

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:appkwiz/controllers/firebase_ref/loading_status.dart';
 import 'package:appkwiz/controllers/firebase_ref/references.dart';
 import 'package:appkwiz/models/question_paper_model.dart';
+import 'package:appkwiz/screens/question/result_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
@@ -134,6 +135,6 @@ class QuestionsController extends GetxController {
 
   void complete() {
     _timer!.cancel();
-    Get.offAndToNamed("/home");
+    Get.offAndToNamed(ResultScreen.routeName);
   }
 }
