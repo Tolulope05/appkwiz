@@ -1,6 +1,6 @@
-import 'package:appkwiz/configs/themes/app_colors.dart';
 import 'package:appkwiz/configs/themes/custom_text_style.dart';
 import 'package:appkwiz/controllers/question_controller/question_controller_extension.dart';
+import 'package:appkwiz/screens/question/answer_check_screen.dart';
 import 'package:appkwiz/widgets/questions/answer_card.dart';
 import 'package:appkwiz/widgets/questions/question_number_card.dart';
 import 'package:flutter/material.dart';
@@ -79,10 +79,13 @@ class ResultScreen extends GetView<QuestionsController> {
                         return QuestionNumberCard(
                           index: index,
                           status: _status,
-                          onTap: () => controller.jumpToQuestion(
-                            index,
-                            isGoBack: false, // user submitted ! back.
-                          ),
+                          onTap: () {
+                            controller.jumpToQuestion(
+                              index,
+                              isGoBack: false,
+                            ); // user submitted ! back.
+                            Get.toNamed(AnswerCheckScreen.routeName);
+                          },
                         );
                       }),
                     ),
