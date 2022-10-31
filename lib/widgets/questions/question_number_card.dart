@@ -52,7 +52,7 @@ class QuestionNumberCard extends StatelessWidget {
             style: TextStyle(
               color: status == AnswerStatus.notanswerd
                   ? Theme.of(context).primaryColor
-                  : null,
+                  : onSurfaceTextColor,
             ),
           ),
         ),

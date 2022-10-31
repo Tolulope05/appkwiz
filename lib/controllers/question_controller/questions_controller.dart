@@ -108,7 +108,7 @@ class QuestionsController extends GetxController {
   void startTimer(int seconds) {
     const duration = Duration(seconds: 1);
     remainSeconds = seconds;
-    Timer.periodic(
+    _timer = Timer.periodic(
       duration,
       (Timer timer) {
         if (remainSeconds == 0) {
@@ -130,5 +130,10 @@ class QuestionsController extends GetxController {
     if (isGoBack) {
       Get.back();
     }
+  }
+
+  void complete() {
+    _timer!.cancel();
+    Get.offAndToNamed("/home");
   }
 }

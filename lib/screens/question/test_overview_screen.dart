@@ -1,16 +1,14 @@
-import 'package:appkwiz/configs/themes/custom_text_style.dart';
 import 'package:appkwiz/configs/themes/ui_paramters.dart';
 import 'package:appkwiz/controllers/question_controller/questions_controller.dart';
 import 'package:appkwiz/screens/home/content_area.dart';
 import 'package:appkwiz/widgets/common/background_decoration.dart';
 import 'package:appkwiz/widgets/common/custom_app_bar.dart';
+import 'package:appkwiz/widgets/common/main_button.dart';
 import 'package:appkwiz/widgets/questions/answer_card.dart';
 import 'package:appkwiz/widgets/questions/count_down_timer.dart';
 import 'package:appkwiz/widgets/questions/question_number_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../configs/themes/app_colors.dart';
 
 class TestOverviewScreen extends GetView<QuestionsController> {
   const TestOverviewScreen({Key? key}) : super(key: key);
@@ -78,6 +76,16 @@ class TestOverviewScreen extends GetView<QuestionsController> {
                         }),
                   ),
                 ],
+              ),
+            ),
+          ),
+          ColoredBox(
+            color: Theme.of(context).scaffoldBackgroundColor,
+            child: Padding(
+              padding: const EdgeInsets.all(8),
+              child: MainButton(
+                title: "Complete",
+                onTap: () => controller.complete(),
               ),
             ),
           )
