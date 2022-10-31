@@ -10,6 +10,8 @@ import 'package:appkwiz/widgets/questions/question_number_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../configs/themes/app_colors.dart';
+
 class TestOverviewScreen extends GetView<QuestionsController> {
   const TestOverviewScreen({Key? key}) : super(key: key);
   static const String routeName = "/test-overview";
@@ -34,10 +36,20 @@ class TestOverviewScreen extends GetView<QuestionsController> {
                             ? Theme.of(context).textTheme.bodyLarge!.color
                             : Theme.of(context).primaryColor,
                       ),
-                      Obx(() => Text(
-                            "${controller.time} Remaining",
-                            style: countDownTimerTS(),
-                          ))
+                      Obx(
+                        () => Text(
+                          "${controller.time} Remaining",
+                          style: TextStyle(
+                            color: UIParamters.isDarkMode()
+                                ? Theme.of(Get.context!)
+                                    .textTheme
+                                    .bodyText1!
+                                    .color
+                                : Theme.of(context).primaryColor,
+                            letterSpacing: 2,
+                          ),
+                        ),
+                      )
                     ],
                   ),
                   const SizedBox(height: 20),
