@@ -58,11 +58,6 @@ class TestOverviewScreen extends GetView<QuestionsController> {
                           if (_selectedAnswer != null) {
                             _answerStatus = AnswerStatus.answered;
                           }
-                          // if (_selectedAnswer == null) {
-                          //   _answerStatus = AnswerStatus.notanswerd;
-                          // }
-                          //   return Text(
-                          //       "${controller.allquestions[index].selectedAnswer != null}");
                           return QuestionNumberCard(
                             index: index + 1,
                             status: _answerStatus,
