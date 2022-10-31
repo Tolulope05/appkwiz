@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:appkwiz/configs/themes/custom_text_style.dart';
 import 'package:appkwiz/controllers/question_controller/questions_controller.dart';
 import 'package:appkwiz/screens/home/content_area.dart';
@@ -40,13 +42,20 @@ class AnswerCheckScreen extends GetView<QuestionsController> {
                     padding: const EdgeInsets.only(top: 20),
                     child: Column(
                       children: [
-                        Text(controller.currentQuestions.value!.question),
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 10),
+                          child: Text(
+                            controller.currentQuestions.value!.question,
+                            style: const TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold),
+                          ),
+                        ),
                         GetBuilder<QuestionsController>(
                           id: "answer_review_list",
                           builder: (_) {
                             return ListView.separated(
                               separatorBuilder: ((_, index) {
-                                return SizedBox(
+                                return const SizedBox(
                                   height: 10,
                                 );
                               }),
@@ -67,15 +76,17 @@ class AnswerCheckScreen extends GetView<QuestionsController> {
                                 if (correctAnswer == selectedAnswer &&
                                     answer.identifier == selectedAnswer) {
                                   // Correct answer
-
+                                  return CorrectAnswer(answer: answerText);
                                 } else if (selectedAnswer == null) {
                                   // not selected answer
-
+                                  return NotAnswered(answer: answerText);
                                 } else if (correctAnswer != selectedAnswer &&
                                     answer.identifier == selectedAnswer) {
                                   // wrong answer
+                                  return WrongAnswer(answer: answerText);
                                 } else if (correctAnswer == answer.identifier) {
                                   // correct answer
+                                  return CorrectAnswer(answer: answerText);
                                 }
 
                                 return AnswerCard(
