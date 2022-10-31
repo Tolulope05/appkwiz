@@ -87,7 +87,6 @@ class HomeScreen extends GetView<MyZoomDrawerController> {
                         child: ContentArea(
                           child: Obx(
                             () => ListView.separated(
-                              padding: UIParamters.mobileScreenPadding,
                               itemBuilder: (BuildContext context, int index) {
                                 return QuestionCard(
                                   model:

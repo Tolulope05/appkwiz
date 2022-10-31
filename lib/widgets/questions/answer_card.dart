@@ -2,6 +2,13 @@ import 'package:appkwiz/configs/themes/app_colors.dart';
 import 'package:appkwiz/configs/themes/ui_paramters.dart';
 import 'package:flutter/material.dart';
 
+enum AnswerStatus {
+  correct,
+  wrong,
+  answered,
+  notanswerd,
+}
+
 class AnswerCard extends StatelessWidget {
   const AnswerCard({
     Key? key,

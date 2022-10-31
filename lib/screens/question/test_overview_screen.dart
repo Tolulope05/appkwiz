@@ -4,7 +4,9 @@ import 'package:appkwiz/controllers/question_controller/questions_controller.dar
 import 'package:appkwiz/screens/home/content_area.dart';
 import 'package:appkwiz/widgets/common/background_decoration.dart';
 import 'package:appkwiz/widgets/common/custom_app_bar.dart';
+import 'package:appkwiz/widgets/questions/answer_card.dart';
 import 'package:appkwiz/widgets/questions/count_down_timer.dart';
+import 'package:appkwiz/widgets/questions/question_number_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -41,19 +43,32 @@ class TestOverviewScreen extends GetView<QuestionsController> {
                   const SizedBox(height: 20),
                   Expanded(
                     child: GridView.builder(
-                      shrinkWrap: true,
-                      itemCount: controller.allquestions.length,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: Get.width ~/ 75,
-                        childAspectRatio: 1,
-                        crossAxisSpacing: 8,
-                        mainAxisSpacing: 8,
-                      ),
-                      itemBuilder: (context, index) {
-                        return Text(
-                            "${controller.allquestions[index].selectedAnswer != null}");
-                      },
-                    ),
+                        shrinkWrap: true,
+                        itemCount: controller.allquestions.length,
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: Get.width ~/ 75,
+                          childAspectRatio: 1,
+                          crossAxisSpacing: 8,
+                          mainAxisSpacing: 8,
+                        ),
+                        itemBuilder: (context, index) {
+                          AnswerStatus? _answerStatus;
+                          String? _selectedAnswer =
+                              controller.allquestions[index].selectedAnswer;
+                          if (_selectedAnswer != null) {
+                            _answerStatus = AnswerStatus.answered;
+                          }
+                          // if (_selectedAnswer == null) {
+                          //   _answerStatus = AnswerStatus.notanswerd;
+                          // }
+                          //   return Text(
+                          //       "${controller.allquestions[index].selectedAnswer != null}");
+                          return QuestionNumberCard(
+                            index: index + 1,
+                            status: _answerStatus,
+                            onTap: () => controller.jumpToQuestion(index),
+                          );
+                        }),
                   ),
                 ],
               ),

@@ -123,4 +123,12 @@ class QuestionsController extends GetxController {
       },
     );
   }
+
+  void jumpToQuestion(int index, {bool isGoBack = true}) {
+    questionIndex.value = index;
+    currentQuestions.value = allquestions[index];
+    if (isGoBack) {
+      Get.back();
+    }
+  }
 }
