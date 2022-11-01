@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:appkwiz/configs/themes/custom_text_style.dart';
 import 'package:appkwiz/controllers/question_controller/questions_controller.dart';
 import 'package:appkwiz/screens/home/content_area.dart';

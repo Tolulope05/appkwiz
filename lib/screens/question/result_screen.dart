@@ -1,6 +1,8 @@
 import 'package:appkwiz/configs/themes/custom_text_style.dart';
+import 'package:appkwiz/configs/themes/ui_paramters.dart';
 import 'package:appkwiz/controllers/question_controller/question_controller_extension.dart';
 import 'package:appkwiz/screens/question/answer_check_screen.dart';
+import 'package:appkwiz/widgets/common/main_button.dart';
 import 'package:appkwiz/widgets/questions/answer_card.dart';
 import 'package:appkwiz/widgets/questions/question_number_card.dart';
 import 'package:flutter/material.dart';
@@ -94,6 +96,34 @@ class ResultScreen extends GetView<QuestionsController> {
               ),
             ),
           ),
+          ColoredBox(
+            color: Theme.of(context).scaffoldBackgroundColor,
+            child: Padding(
+              padding: UIParamters.mobileScreenPadding,
+              child: Row(
+                children: [
+                  Expanded(
+                    child: MainButton(
+                      onTap: () {
+                        controller.tryAgain();
+                      },
+                      color: Colors.blueGrey,
+                      title: "Try Again",
+                    ),
+                  ),
+                  const SizedBox(width: 5),
+                  Expanded(
+                    child: MainButton(
+                      onTap: () {
+                        controller.saveTestResult();
+                      },
+                      title: "Go Home",
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          )
         ],
       )),
     );
