@@ -83,7 +83,7 @@ class QuestionsController extends GetxController {
 
   void selectedAnswer(String? answer) {
     currentQuestions.value!.selectedAnswer = answer;
-    update(["answers_lists"]);
+    update(["answers_lists", "answer_review_list"]);
   }
 
   String get completedTest {
