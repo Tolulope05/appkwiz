@@ -28,14 +28,3 @@ class ThemeController extends GetxController {
   ThemeData get darkTheme => _darkTheme;
   ThemeData get lightTheme => _lightTheme;
 }
-
-
-  // TextButton(
-                  //     onPressed: () {
-                  //       Get.changeTheme(
-                  //         Get.isDarkMode
-                  //             ? LightTheme().buildLightTheme()
-                  //             : DarkTheme().buildDarkTheme(),
-                  //       );
-                  //     },
-                  //     child: Text("Shuffle Theme"))
