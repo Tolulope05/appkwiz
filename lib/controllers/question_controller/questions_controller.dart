@@ -1,14 +1,11 @@
 import 'dart:async';
 
-import 'package:appkwiz/controllers/auth_controller.dart';
 import 'package:appkwiz/controllers/firebase_ref/loading_status.dart';
 import 'package:appkwiz/controllers/firebase_ref/references.dart';
-import 'package:appkwiz/controllers/question_controller/question_paper_controller.dart';
 import 'package:appkwiz/models/question_paper_model.dart';
 import 'package:appkwiz/screens/home/home_screen.dart';
 import 'package:appkwiz/screens/question/result_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 
